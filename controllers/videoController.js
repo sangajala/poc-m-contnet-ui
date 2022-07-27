@@ -42,7 +42,6 @@ export const addVideo = async (req, res) => {
         msg: "Video exists already with the given title",
       });
     }
-    //save to db
 
     video = new Video(newVideo);
     video = await video.save();
@@ -58,8 +57,6 @@ export const addVideo = async (req, res) => {
     });
   }
 };
-
-
 
 export const updateVideo = async (req, res) => {
   let videoId = req.params.id;
@@ -80,7 +77,6 @@ export const updateVideo = async (req, res) => {
       });
     }
 
-    
     video = await Video.findByIdAndUpdate(
       videoId,
       {
@@ -101,9 +97,6 @@ export const updateVideo = async (req, res) => {
   }
 };
 
-
-
-
 export const deleteVideo = async (req, res) => {
   let videoId = req.params.id;
 
@@ -114,7 +107,6 @@ export const deleteVideo = async (req, res) => {
         msg: "Video Does Not Exist",
       });
     }
-
 
     video = await Video.findByIdAndDelete(videoId);
 
@@ -129,5 +121,3 @@ export const deleteVideo = async (req, res) => {
     });
   }
 };
-
-
